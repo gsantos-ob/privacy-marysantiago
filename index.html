@@ -1,3 +1,84 @@
+<!DOCTYPE html>
+<html lang=\"pt\">
+
+<head>
+  <meta charset=\"UTF-8\">
+  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no\">
+  <title>Privcy Mary Santiago</title>
+
+  <!-- Facebook Pixel Code -->
+  <script>
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ?
+          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      };
+      if (!f._fbq) f._fbq = n;
+      n.push = n; n.loaded = !0; n.version = '2.0';
+      n.queue = []; t = b.createElement(e); t.async = !0;
+      t.src = v; s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1615670605746511');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height=\"1\" width=\"1\" style=\"display:none\"
+      src=\"https://www.facebook.com/tr?id=1615670605746511&ev=PageView&noscript=1\" /></noscript>
+  <!-- End Facebook Pixel Code -->
+
+  <!-- Código de rastreio UTM -->
+  <script>
+    var currentUrl = window.location.href;
+    var url = new URL(currentUrl);
+    var pagePath = url.pathname.replace(/^\/|\/$/g, '');
+    var cleanReferrer = document.referrer ? document.referrer.replace(/^https?:\/\//, '') : '';
+    var utmSource = url.searchParams.get('utm_source') || cleanReferrer || 'Direto';
+    var utmMedium = url.searchParams.get('utm_medium') || 'Organico';
+    var utmCampaign = url.searchParams.get('utm_campaign') || 'Direto';
+    var utmContent = url.searchParams.get('utm_content') || pagePath || 'Home';
+    var utmTerm = url.searchParams.get('utm_term') || '';
+
+    var links = document.querySelectorAll('a');
+    for (var i = 0; i < links.length; i++) {
+      if (!links[i].hasAttribute('popup')) {
+        var destinationUrl = links[i].href;
+        if (!destinationUrl.includes('#')) {
+          var hasUtmParams = destinationUrl.includes('utm_source') ||
+                             destinationUrl.includes('utm_medium') ||
+                             destinationUrl.includes('utm_campaign') ||
+                             destinationUrl.includes('utm_content') ||
+                             destinationUrl.includes('utm_term');
+
+          if (!hasUtmParams) {
+            destinationUrl += (destinationUrl.indexOf('?') === -1 ? '?' : '&');
+            destinationUrl += 'utm_source=' + utmSource;
+            destinationUrl += '&utm_medium=' + utmMedium;
+            destinationUrl += '&utm_campaign=' + utmCampaign;
+            destinationUrl += '&utm_content=' + utmContent;
+            destinationUrl += '&utm_term=' + utmTerm;
+
+            if (destinationUrl.includes('pay.hotmart') || destinationUrl.includes('pay.kiwify')) {
+              var sckValue = utmSource + '-' + utmMedium + '-' + utmCampaign + '-' + utmContent + '-' + utmTerm;
+              destinationUrl += '&sck=' + sckValue;
+            }
+
+            links[i].href = destinationUrl;
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Restante dos seus estilos e scripts atuais aqui -->
+  <!-- Copie todos os seus CSS e meta tags originais exatamente aqui abaixo -->
+
+  <!-- (Insira todo o restante do seu código original que veio após a tag <title>) -->
+
+</head>
+
+<body>
+
 <!DOCTYPE html><html><head>
     <style>
     .notification {
@@ -496,3 +577,7 @@
 <body>
 
 <!-- End Facebook Pixel Code --></body></html><!-- Facebook Pixel Code -->
+
+</body>
+
+</html>
