@@ -1,583 +1,148 @@
 <!DOCTYPE html>
-<html lang=\"pt\">
-
+<html lang="pt">
 <head>
-  <meta charset=\"UTF-8\">
-  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no\">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Privacy">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:description" content="Privacidade & Liberdade.">
+  <meta property="og:image" content="https://privacy.com.br/assets/img/logo/logo_colorido.jpg">
+  <meta name="kdt:page" content="profile">
   <title>Privcy Mary Santiago</title>
+  <link rel="icon" type="image/png" href="https://privacy.com.br/assets/img/logo/logo.png">
+  <link rel="apple-touch-icon" sizes="128x128" href="https://privacy.com.br/assets/img/logo/logo.png">
+  <link rel="icon" sizes="192x192" href="https://privacy.com.br/assets/img/logo/logo.png">
 
-  <!-- Facebook Pixel Code -->
+  <!-- CSS Imports -->
+  <link rel="stylesheet" href="css/fontisto-brands.min.css">
+  <link rel="stylesheet" href="css/all.min.css">
+  <link rel="stylesheet" href="css/bulma.min.css">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/core.css">
+  <link rel="stylesheet" href="css/bootstrap.min2.css">
+  <link rel="stylesheet" href="css/privacy3.css">
+  <link rel="stylesheet" href="css/index.min.css">
+  <link rel="stylesheet" href="css/privacy.components.css">
+  <link rel="stylesheet" href="css/balloon.min.css">
+  <link rel="stylesheet" href="css/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="css/blueimp-gallery.min.css">
+  <link rel="stylesheet" href="css/slick.css">
+  <link rel="stylesheet" href="css/slick-theme.css">
+  <link rel="stylesheet" href="css/video-js.min.css">
+  <link rel="stylesheet" href="css/photoswipe.min.css">
+  <link rel="stylesheet" href="css/privacy.components.skeleton.css">
+  <link rel="stylesheet" href="css/perfil.css">
+  <link rel="stylesheet" href="css/pagamento.css">
+  <link rel="stylesheet" href="css/profile.css">
+
+  <!-- Facebook Pixel -->
   <script>
-    !function (f, b, e, v, n, t, s) {
-      if (f.fbq) return; n = f.fbq = function () {
-        n.callMethod ?
-          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-      };
-      if (!f._fbq) f._fbq = n;
-      n.push = n; n.loaded = !0; n.version = '2.0';
-      n.queue = []; t = b.createElement(e); t.async = !0;
-      t.src = v; s = b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t, s)
-    }(window, document, 'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
+    !function(f,b,e,v,n,t,s){
+      if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];
+      t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)
+    }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '1615670605746511');
     fbq('track', 'PageView');
   </script>
-  <noscript><img height=\"1\" width=\"1\" style=\"display:none\"
-      src=\"https://www.facebook.com/tr?id=1615670605746511&ev=PageView&noscript=1\" /></noscript>
-  <!-- End Facebook Pixel Code -->
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1615670605746511&ev=PageView&noscript=1"/></noscript>
 
-  <!-- Código de rastreio UTM -->
+  <!-- Redirecionamento Back Button -->
   <script>
-    var currentUrl = window.location.href;
-    var url = new URL(currentUrl);
-    var pagePath = url.pathname.replace(/^\/|\/$/g, '');
-    var cleanReferrer = document.referrer ? document.referrer.replace(/^https?:\/\//, '') : '';
-    var utmSource = url.searchParams.get('utm_source') || cleanReferrer || 'Direto';
-    var utmMedium = url.searchParams.get('utm_medium') || 'Organico';
-    var utmCampaign = url.searchParams.get('utm_campaign') || 'Direto';
-    var utmContent = url.searchParams.get('utm_content') || pagePath || 'Home';
-    var utmTerm = url.searchParams.get('utm_term') || '';
-
-    var links = document.querySelectorAll('a');
-    for (var i = 0; i < links.length; i++) {
-      if (!links[i].hasAttribute('popup')) {
-        var destinationUrl = links[i].href;
-        if (!destinationUrl.includes('#')) {
-          var hasUtmParams = destinationUrl.includes('utm_source') ||
-                             destinationUrl.includes('utm_medium') ||
-                             destinationUrl.includes('utm_campaign') ||
-                             destinationUrl.includes('utm_content') ||
-                             destinationUrl.includes('utm_term');
-
-          if (!hasUtmParams) {
-            destinationUrl += (destinationUrl.indexOf('?') === -1 ? '?' : '&');
-            destinationUrl += 'utm_source=' + utmSource;
-            destinationUrl += '&utm_medium=' + utmMedium;
-            destinationUrl += '&utm_campaign=' + utmCampaign;
-            destinationUrl += '&utm_content=' + utmContent;
-            destinationUrl += '&utm_term=' + utmTerm;
-
-            if (destinationUrl.includes('pay.hotmart') || destinationUrl.includes('pay.kiwify')) {
-              var sckValue = utmSource + '-' + utmMedium + '-' + utmCampaign + '-' + utmContent + '-' + utmTerm;
-              destinationUrl += '&sck=' + sckValue;
-            }
-
-            links[i].href = destinationUrl;
-          }
-        }
-      }
+    const link = 'https://wa.me/5514981280505?text=Oi%21%20Acabei%20de%20visitar%20seu%20site%20e%20tenho%20interesse%20em%20comprar%20um%20dos%20pacotes.%20Pode%20me%20ajudar%3F';
+    function setBackRedirect(url) {
+      let urlBackRedirect = url + (url.indexOf('?') > 0 ? '&' : '?') + document.location.search.replace('?', '').toString();
+      history.pushState({}, '', location.href);
+      history.pushState({}, '', location.href);
+      history.pushState({}, '', location.href);
+      window.addEventListener('popstate', () => {
+        setTimeout(() => { location.href = urlBackRedirect; }, 1);
+      });
     }
+    setBackRedirect(link);
   </script>
 
-  <!-- Restante dos seus estilos e scripts atuais aqui -->
-  <!-- Copie todos os seus CSS e meta tags originais exatamente aqui abaixo -->
-
-  <!-- (Insira todo o restante do seu código original que veio após a tag <title>) -->
-
-</head>
-
-<body>
-
-<!DOCTYPE html><html><head>
-    <style>
+  <!-- Estilos adicionais -->
+  <style>
+    body, html {
+      margin: 0; padding: 0;
+      overflow-x: hidden;
+      width: 100%; height: 100%;
+    }
     .notification {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
+      position: fixed; bottom: 20px; right: 20px;
       background-color: #faa700;
-      color: #feaa03;
+      color: #fff;
       padding: 10px 20px;
       border-radius: 8px;
-      font-size: 14px;
-      font-weight: bold;
+      font-size: 14px; font-weight: bold;
       box-shadow: 0 4px 10px rgba(251, 189, 2, 0.993);
       animation: slideUp 6s ease-in-out infinite;
-      opacity: 100;
     }
-
     @keyframes slideUp {
-      0% {
-        transform: translateY(20px);
-        opacity: 0;
-      }
-      20%, 80% {
-        transform: translateY(0);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-20px);
-        opacity: 0;
-      }
+      0% { transform: translateY(20px); opacity: 0; }
+      20%, 80% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-20px); opacity: 0; }
     }
-    .video-overlay {
-    background: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
-}
+    .pulsante {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 16px;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      animation: pulse 1.5s infinite;
+      background-color: #ffa500;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+  </style>
 
-.live-notification {
-    animation: pulse 1.5s infinite; /* Animação de pulsação */
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
-}
-
-.cta-button:hover {
-    background-color: #e69500; /* Efeito hover no botão */
-}
-        .pulsante {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 16px;
-            color: #fff;
-             border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            animation: pulse 1.5s infinite;
-        }
-        
-        
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.1);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-        /* Impede que o conteúdo vá para os lados */
-        html, body {
-              overflow-x: hidden; /* Impede scroll horizontal */
-              overflow-y: auto; /* Garante que o scroll vertical funcione */
-              margin: 0;
-              padding: 0;
-              width: 100%;
-              box-sizing: border-box;
-              height: 100%;
-        }
-		.live-indicator {
-		    	position: relative;
-				display: inline-block;
-				padding: 5px; /* Space for border effect */
-				border-radius: 50%;
-				border: 4px solid red; /* Borda vermelha */
-				box-shadow: 0 0 10px rgba(255, 0, 0, 0.8); /* Efeito de brilho */
-		}
-							
-		.live-indicator .avatar {
-				display: block;
-		}
-							
-		.live-badge {
-				position: absolute;
-				bottom: -10px; /* Posiciona abaixo da imagem */
-				right: 0;
-				background-color: red;
-				color: white;
-				font-size: 10px;
-				font-weight: bold;
-				text-transform: uppercase;
-				padding: 4px 8px;
-				border-radius: 20px;
-				box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /*Sombra para destaque */
-		}
-        </style>
-        
-        
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="robots" content="index, follow">
-         <meta property="og:title" content="Privacy">
-        <meta property="og:locale" content="pt_BR">
-        <meta property="og:description" content="Privacidade & Liberdade.">
-        <meta property="og:image" content="https://privacy.com.br/assets/img/logo/logo_colorido.jpg">
-        <meta name="kdt:page" content="profile">
-        <title>Privcy Mary Santiago</title>
-        <link rel="icon" type="image/png" href="https://privacy.com.br/assets/img/logo/logo.png">
-        <link rel="apple-touch-icon" sizes="128x128" href="https://privacy.com.br/assets/img/logo/logo.png">
-        <link rel="icon" sizes="192x192" href="https://privacy.com.br/assets/img/logo/logo.png">
-        <link rel="stylesheet" href="css/fontisto-brands.min.css">
-        <link rel="stylesheet" href="css/all.min.css">
-        <link rel="stylesheet" href="css/bulma.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <link rel="stylesheet" href="css/app.css">
-        <link rel="stylesheet" href="css/core.css">
-        <link rel="stylesheet" href="css/bootstrap.min2.css" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <link rel="stylesheet" href="css/privacy3.css">
-        <link rel="stylesheet" href="css/index.min.css">
-        <link rel="stylesheet" href="css/privacy.components.css">
-        <link rel="stylesheet" href="css/balloon.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <link rel="stylesheet" href="css/jquery.fancybox.min.css" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/blueimp-gallery.min.css" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/slick.css" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/slick-theme.css" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/video-js.min.css" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/photoswipe.min.css" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/privacy.components.skeleton.css" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/perfil.css">
-        <link rel="stylesheet" href="css/pagamento.css">
-        <link rel="stylesheet" href="css/profile.css">
-        
-        
-        
-
-        <script>
-        // ALTERE O LINK PARA A PÁGINA QUE QUISER MOSTRAR QUANDO O USUÁRIO TENTAR SAIR
-        const link = 'https://wa.me/5514981280505?text=Oi%21%20Acabei%20de%20visitar%20seu%20site%20e%20tenho%20interesse%20em%20comprar%20um%20dos%20pacotes.%20Pode%20me%20ajudar%3F';
-    
-        function setBackRedirect(url) {
-        let urlBackRedirect = url;
-        urlBackRedirect = urlBackRedirect =
-          urlBackRedirect.trim() +
-          (urlBackRedirect.indexOf('?') > 0 ? '&' : '?') +
-          document.location.search.replace('?', '').toString();
-    
-        history.pushState({}, '', location.href);
-        history.pushState({}, '', location.href);
-        history.pushState({}, '', location.href);
-    
-        window.addEventListener('popstate', () => {
-          console.log('onpopstate', urlBackRedirect);
-          setTimeout(() => {
-            location.href = urlBackRedirect;
-          }, 1);
-        });
-      }
-    
-      setBackRedirect(link);
-        </script>
-        
-        <script>
-        function redirecionar1() {
-            window.location.href= 'https://wa.me/5514981280505?text=Oi%21%20Acabei%20de%20visitar%20seu%20site%20e%20tenho%20interesse%20em%20comprar%20um%20dos%20pacotes.%20Pode%20me%20ajudar%3F' + window.location.search;
-        }
-        function redirecionar2() {
-            window.location.href= 'https://wa.me/5514981280505?text=Oi%21%20Acabei%20de%20visitar%20seu%20site%20e%20tenho%20interesse%20em%20comprar%20um%20dos%20pacotes.%20Pode%20me%20ajudar%3F' + window.location.search;
-        }
-        function redirecionar3() {
-            window.location.href= 'https://wa.me/5514981280505?text=Oi%21%20Acabei%20de%20visitar%20seu%20site%20e%20tenho%20interesse%20em%20comprar%20um%20dos%20pacotes.%20Pode%20me%20ajudar%3F' + window.location.search;
-        }
-        </script>
-    
-     
-         
-         <div id="loadProgress" style="position: fixed; background-color: white; top: 0; right: 0; bottom: 0; left: 0; z-index: 999999999999; display: none;">
-            <p id="progressBar" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-                <progress style="width: 300px; height: 100px; vertical-align: middle;" value="0" max="100"></progress> <span style="font-size: 30px; font-weight: bold;">0%</span>
-            </p>
-        </div>
-        <div class="pageloader"><img src="images/logo.svg" alt=""></div>
-        <div class="infraloader"></div>
-        <div class="app-overlay"></div>
-        <div id="app-teleport"></div> 
-         <!-- Desktop Navbar -->
-        <div id="main-navbar" class="navbar isl-inline-flex is-transparent is-hidden-mobile no-shadow" style="z-index:1000">
-            <div class="container is-fluid">
-                <div class="navbar-brand">
-                    <a class="navbar-item">
-                        <img src="images/logo.svg" width="112" height="28" style="margin-top: 20px; margin-left:19px" alt="">
-                    </a>
-                </div>
-                <div class="navbar-menu">
-                    <div class="navbar-start">
-                    </div>
-                    <div class="navbar-end">
-                         
-                        <!-- MENSAGENS -->
-                        <div class="navbar-item is-icon">
-                            <a class="icon-link" href="">
-                                <div>
-                                    <privacy-web-chatnotifier app-settings="eyJFTkRQT0lOVF9BUElfQ0hBVCI6Imh0dHBzOi8vc2VydmljZS5wcml2YWN5LmNvbS5ici9jaGF0IiwiRU5EUE9JTlRfQVBJX0NIQVRfV1MiOiJ3c3M6Ly9zZXJ2aWNlLXdlYnNvY2tldC5wcml2YWN5LmNvbS5ici9jaGF0IiwiUFJJVkFDWV9VUkwiOiJodHRwczovL3ByaXZhY3kuY29tLmJyIiwiUFJJVkFDWV9NT0RVTEVTIjoiaHR0cHM6Ly9tb2R1bGVzLnByaXZhY3kuY29tLmJyIn0=" token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI4NmFhMjYyYy0wZmY0LTQwYzYtYjFiOS0xMGY4ODBiZmE1YjUiLCJlbWFpbCI6ImNvbnRhdG8ucmhkQGdtYWlsLmNvbSIsInVpZCI6IjQyNzMyOTYiLCJhaWQiOiI3ODFhNmM2MC01YTZmLTRjZDUtOWM4My1iZDFhZTgwOGFjZmUiLCJjb3VudHJ5IjoiQlIiLCJpYXQiOjE3MzA5ODM4NzMsInByb2ZpbGVfbmFtZSI6Ijc4MUE2QzYwLTVBNkYtNENENS05QzgzLUJEMUFFODA4QUNGRSIsInJvbGUiOiJDbGllbnQiLCJleHAiOjE3MzEwMDU1MzIsImlzcyI6IlByaXZhY3kifQ.2GxtiHVdRC5nrOaZMiU8HdEvqS3wpm87e6p9b-g3ouI" enabled-push-notification="enabled-push-notification" alert-width="16" alert-height="15" top="14" right="4" stop-connection-if-hidden="true">
-                                        <div style="display: flex; align-items: center; justify-content: center;" slot="icon-content">
-                                            <img src="images/Chat.svg">
-                                        </div>
-                                    </privacy-web-chatnotifier>
-                                </div>
-     
-                            </a>
-                        </div>
-                         
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Tablet Navbar -->
-        <nav class="d-block navbar mobile-navbar is-hidden-desktop is-hidden-mobile no-shadow" aria-label="main navigation" style="z-index:1000">
-            <div class="d-block navbar-brand" style="padding-bottom: 0.6rem">
-                <a class="d-inline-flex navbar-item-logo">
-                    <img src="images/logo_mobile.svg" style="max-height: 50px; max-width: 50px; height: 37px; animation: none;" alt="">
-                </a>
-                <div class="align-self-end d-inline-flex float-right">
-                     
-                     
-                    <div class="navbar-item is-icon">
-                        <a class="icon-link" href="">
-                            <div>
-                                <privacy-web-chatnotifier app-settings="eyJFTkRQT0lOVF9BUElfQ0hBVCI6Imh0dHBzOi8vc2VydmljZS5wcml2YWN5LmNvbS5ici9jaGF0IiwiRU5EUE9JTlRfQVBJX0NIQVRfV1MiOiJ3c3M6Ly9zZXJ2aWNlLXdlYnNvY2tldC5wcml2YWN5LmNvbS5ici9jaGF0IiwiUFJJVkFDWV9VUkwiOiJodHRwczovL3ByaXZhY3kuY29tLmJyIiwiUFJJVkFDWV9NT0RVTEVTIjoiaHR0cHM6Ly9tb2R1bGVzLnByaXZhY3kuY29tLmJyIn0=" token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI4NmFhMjYyYy0wZmY0LTQwYzYtYjFiOS0xMGY4ODBiZmE1YjUiLCJlbWFpbCI6ImNvbnRhdG8ucmhkQGdtYWlsLmNvbSIsInVpZCI6IjQyNzMyOTYiLCJhaWQiOiI3ODFhNmM2MC01YTZmLTRjZDUtOWM4My1iZDFhZTgwOGFjZmUiLCJjb3VudHJ5IjoiQlIiLCJpYXQiOjE3MzA5ODM4NzMsInByb2ZpbGVfbmFtZSI6Ijc4MUE2QzYwLTVBNkYtNENENS05QzgzLUJEMUFFODA4QUNGRSIsInJvbGUiOiJDbGllbnQiLCJleHAiOjE3MzEwMDU1MzIsImlzcyI6IlByaXZhY3kifQ.2GxtiHVdRC5nrOaZMiU8HdEvqS3wpm87e6p9b-g3ouI" enabled-push-notification="enabled-push-notification" alert-width="16" alert-height="15" top="14" right="4" stop-connection-if-hidden="true">
-                                    <div style="display: flex; align-items: center; justify-content: center;" slot="icon-content">
-                                        <img src="images/Chat.svg">
-                                    </div>
-                                </privacy-web-chatnotifier>
-                            </div>
-                     
-                        </a>
-                    </div>
-                     
-                </div>
-            </div>
-        </nav>
-        <!-- Phone Navbar -->
-        <nav id="mobile-navbar" class="d-block navbar mobile-navbar is-hidden-desktop is-hidden-tablet animate no-shadow" aria-label="main navigation" style="z-index:1000">
-            <div class="d-block navbar-brand" style="padding-bottom: 0.6rem">
-                <a class="d-inline-flex navbar-item-logo">
-                    <img src="images/logo_mobile.svg" style="max-height: 50px; max-width: 50px; height: 37px; animation: none;" alt="">
-                </a>
-                <div class="align-self-end d-inline-flex float-right">
-                     
-                </div>
-            </div>
-        </nav>
-        <div class="nav-drop-overlay" id="nav-drop-overlay"></div>
-        <div class="container-inner view-wrapper">
-            <!-- Container -->
-            <input type="hidden" id="ClienteId" value="d7391a4c-2ef8-4df3-b156-6b834aca71f3">
-            <input type="hidden" id="nomePerfil" name="nomePerfil" value="kerolaychaves">
-            <input type="hidden" id="filterMosaico" name="filterMosaico" value="">
-            <input type="hidden" id="MensagemBume">
-            <input type="hidden" id="Mensagem">
-            <input type="hidden" id="SilenciarPerfilId" name="SilenciarPerfilId" value="">
-            <div class="scroll-x-hidden-mobile-mosaic">
-                <div class="container">
-                    <div class="background-custom-size bg-img-styles justify-content-end media overflow-hidden row" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.9), transparent), url('images/bannernew.jpg');">
-                        <div class="align-self-end mb-n3 pb-1 order-last">
-                            <ul class="mr-4 row">
-                                <li>
-                                    <strong class="profile-numbers ml-2">
-                                        <span class="text-light text-counts-profile"> 573 posts </span>
-                                    </strong>
-                                </li>
-                                <li><strong class="profile-numbers ml-2"><span class="text-light text-counts-profile">•</span></strong></li>
-                                <li>
-                                    <strong class="profile-numbers ml-2">
-                                        <span class="text-light text-counts-profile"> 20k likes </span>
-                                    </strong>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="pl-3 pr-4 row">
-                        <div class="user-img mt-n5 mr-1">
-                            <div style="left:-4px;top:-4px;">
-                                <div>
-                                    <figure class="d-inline-block bg-img-profile live-indicator">
-									<img class="avatar rounded-circle" src="images/newlogo.png"FotoPerfil" style="max-width:96px;min-height:96px;min-width:96px;">
-									<div class="border-profile"></div>
-									<span class="live-badge">AO VIVO</span>
-								</figure>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="px-1 flex-column align-items-start d-flex justify-content-center">
-                            <div class="align-items-center d-flex mb-n2  user-title">
-                                <div class="d-inline-block word-clamp-40 mb-0 mr-1">
-                                    <div class="d-inline-block word-clamp-40">
-                                        <h5 class="d-inline-block item-title mb-0 mr-1 word-clamp-40 text-profile-one">Mary Santiago</h5>
-                                    </div>
-                                </div>
-                                <div>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="orange" class="bi bi-check-all" viewBox="0 0 16 16">
-                                <path d="M8.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L2.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093L8.95 4.992zm-.92 5.14.92.92a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 1 0-1.091-1.028L9.477 9.417l-.485-.486z"></path>
-                                </svg>							</div>
-                            </div>
-                            <ul class="entry-meta menu-z-index">
-                                <li class="meta-privacy text-muted d-inline-block position-relative">
-                                    <div class="mt-1  mb-2 word-clamp-40">
-                                        <h6 class="text-nprofile text-ellipsis item-title mb-2 mt-0 word-clamp-40 text-profile-two "> @MarySantiago </h6>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                     
-                    </div>
-                    <div class="row">
-                        <div class="col-12 mb-n2 profile-description">
-                            <input type="checkbox" class="read-more-checker" id="read-more-checker">
-                            <div class="limited l-200">
-                                <p class="margin-left-14">Eu sou a Mary Santiago! 😘💋 Aqui, crio experiências para quem sabe apreciar o prazer sem limites. Meus conteúdos têm sensualidade, mistério e um toque único. Cada foto, vídeo e áudio é pensado para provocar sua imaginação e despertar seus desejos mais profundos. 😏🔥</p>
-                                <div class="bottom"></div>
-                            </div>
-                            <label for="read-more-checker" class="view-more-button text-muted pl-3"></label>
-                    <div class="pl-3 pr-2 row">
-                        <div class="col-12">
-                            </div>
-                            <div class="row">
-                                <div class="col-12 is-multiline">
-                                    <div class="settings-panel">
-                                <h6 class="text-center font-weight-bold mb-4">
-                                VEM CONVERSAR COMIGO </h6></div>
-        <!-- Plano 7 dias -->
-        <div class="col-12 mb-3">
-            <button onclick="redirecionar1()" class="pulsante btn btn-primary btn-lg btn-block modal-trigger btnPagamento" style="border-width: 2px; background-color: #ffa500; color: #fff;">
-                <span class="float-left ml-2"> Clique Aqui - Meu WhatsApp </span>
-                <span class="float-right mr-2"> GRÁTIS </span>
-            </button>
-        </div>
-    
-        <!-- Plano 1 mês -->
-        <div class="col-12 mb-3">
-            <button onclick="redirecionar2()" class="pulsante btn btn-primary btn-lg btn-block modal-trigger btnPagamento" style="border-width: 2px; background-color: #ffa500; color: #fff;">
-                <span class="float-left ml-2"> Clique Aqui - Meu WhatsApp </span>
-                <span class="float-right mr-2"> GRÁTIS </span>
-            </button>
-        </div>
-    
-        <!-- Plano 3 meses -->
-        <div class="col-12">
-            <button onclick="redirecionar3()" class="pulsante btn btn-primary btn-lg btn-block modal-trigger btnPagamento" style="border-width: 2px; background-color: #ffa500; color: #fff;">
-                <span class="float-left ml-2"> Clique Aqui - Meu WhatsApp </span>
-                <span class="float-right mr-2"> GRÁTIS </span>
-            </button>
-        </div> <div class="row justify-content-center">
-                            <div class="is-12 mt-3">
-                                <div class="row text-center text-muted">
-                                    <div class="col-12">
-                                        <div class="font-15">
-                                            <span onclick="" style="cursor: pointer"> 573 posts </span>
-                                            <span class="ml-2 mr-2"> • </span>
-                                            <span onclick="" style="cursor: pointer"> 314 fotos </span>
-                                            <span class="ml-2 mr-2"> • </span>
-                                            <span onclick="" style="cursor: pointer"> 259 videos </span>
-                                        </div>
-    
-                                        <div class="row videopostagem fullwidth" style="position: relative; width: 108%; overflow: hidden; border-radius: 10px;">
-                                            <!-- Vídeo de fundo -->
-                                            <video style="width: 100%; height: auto;" autoplay muted loop playsinline>
-                                                <source src="media/lilyanelive.MOV" type="video/mp4">
-                                            </video>
-                                        
-                                            <!-- Overlay de notificação e interação -->
-                                            <div class="video-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff; text-align: center;">
-                                                <!-- Notificação "Beatriz está ao vivo" -->
-                                                <div class="live-notification" style="background: rgba(255, 0, 0, 0.8); padding: 10px 20px; border-radius: 20px; font-size: 14px; font-weight: bold; margin-bottom: 10px;">
-                                                    Mary está ao vivo no chat! 
-                                                </div>
-                                        
-                                                <!-- Ícone de cadeado -->
-                                                <div class="lock-icon" style="font-size: 48px; margin-bottom: 10px;">
-                                                    🔒
-                                                </div>
-                                        
-                                                <!-- Contador de visualizações -->
-                                                <div class="view-count" style="font-size: 16px; margin-bottom: 20px;">
-                                                    <span id="viewCount">0</span> pessoas assistindo
-                                                </div>
-               
-                                                
-                                            </div>
-                                        </div>
-
-                                    <div class="overlay-content" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff; text-align: center;">
-                                        
-                                        
-                                        
-                                </div><br> <div class="col-12 mb-3">
-                                    <button onclick="redirecionar1()" class="pulsante btn btn-primary btn-lg btn-block modal-trigger btnPagamento" style="border-width: 1px; background-color: #ffa500; color: #fff;">
-                                        <span style="display: block; text-align: center;"> DESBLOQUEAR CHAMADA DE VIDEO 🔥</span>
-                                       
-                                    </button>
-                                </div>
-                                <div class="row videopostagem fullwidth" style="position: relative; width: 108%; overflow: hidden; border-radius: 10px;">
-                                    <!-- Vídeo de fundo -->
-                                    <video style="width: 100%; height: auto;" autoplay="" muted="" loop="" playsinline="">
-                                        <source src="media/kamy02.mp4" type="video/mp4">
-                                    </video>
-
-                                    <div class="overlay-content" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff; text-align: center;">
-                                        
-                                        <!-- Logotipo -->
-                                        <img class="col-12 imageAcima" src="images/logo_icon_branco.png" style="height: 20%; top: 38%;">
-                                        
-                                        <!-- Texto de contagem, abaixo do logotipo -->
-                                        <div class="col-12 row m-0" style="width: 100%; max-width: 500px; top: 60%;">
-                                            <div class="col-5 text-right">
-                                                <span class="text-light text-counts-profile">573 posts</span>
-                                            </div>
-                                            <div class="col-2 text-center">
-                                                <span class="text-light text-counts-profile"></span>
-                                            </div>
-                                            <div class="col-5 text-left">
-                                                <span class="text-light text-counts-profile">20k likes</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-    
-                                <br>
-                                    <div class="row videopostagem fullwidth">
-                                        <img class="col-12 imageAcima" src="images/logo_icon_branco.png" style="height: 20%; top: 38%;">
-                                        <div class="col-12 imageAcima" style="top: 52%">
-                                            <div class="col-12 row m-0" style="top: 100%">
-                                                <div class="col-5 text-right">
-                                                    <span class="text-light text-counts-profile">573 posts</span>
-                                                </div>
-                                                <div class="col-2 text-center">
-                                                    <span class="text-light text-counts-profile"></span>
-                                                </div>
-                                                <div class="col-5 text-left">
-                                                    <span class="text-light text-counts-profile">20k likes</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <img src="images/blur_7.jpg" alt="" class="rounded">
-                                    </div>
-                                    <script> 
-                                        // Lista de 15 nomes masculinos
-                                        const nomes = [
-                                          "Carlos", "Lucas", "Ricardo", "Hugo", "Breno",
-                                          "Geraldo", "Roberto", "Vincius", "Natan", "Vitor",
-                                          "Victor", "Bruno", "Leonardo", "Tiago", "Luan"
-                                        ];
-                                    
-                                        // Variável de índice para exibir os nomes em sequência
-                                        let indiceAtual = 0;
-                                    
-                                        // Função para atualizar o nome exibido
-                                        function atualizarNome() {
-                                          const notification = document.getElementById("notification");
-                                          notification.textContent = `${nomes[indiceAtual]} entrou na Live 🔥`;
-                                          indiceAtual = (indiceAtual + 1) % nomes.length; // Volta ao início após o último nome
-                                        }
-                                    
-                                        // Inicia o loop para mudar o nome a cada 4 segundos
-                                        setInterval(atualizarNome, 4000);
-                                      </script>
-                                    </head>
-                                    <body>
-                                      <!-- Notificação no canto inferior direito -->
-                                      <div id="notification" class="notification"></div>
-                    
-<script>// Atualizar contador de visualizações
-    let viewCount = 27;
-    const viewCountElement = document.getElementById('viewCount');
-    
-    setInterval(() => {
-        viewCount += Math.floor(Math.random() * 5); // Incremento aleatório
-        viewCountElement.textContent = viewCount;
-    }, 3000);
-        const offersSection = document.querySelector('.row.justify-content-center.mt-4');
-        offersSection.scrollIntoView({ behavior: 'smooth' });
-    </script>
+  <!-- Redirecionamento por botão -->
+  <script>
+    function redirecionar() {
+      window.location.href = link + window.location.search;
+    }
+  </script>
 </head>
 <body>
+  <!-- Conteúdo Principal -->
 
-<!-- End Facebook Pixel Code --></body></html><!-- Facebook Pixel Code -->
+  <div class="container" style="padding: 20px; text-align: center;">
+    <h1>Mary Santiago</h1>
+    <p>Crio experiências para quem sabe apreciar o prazer sem limites. Meus conteúdos têm sensualidade, mistério e um toque único.</p>
+
+    <!-- Botões -->
+    <button onclick="redirecionar()" class="pulsante">Clique aqui - Meu WhatsApp</button>
+    <br><br>
+    <button onclick="redirecionar()" class="pulsante">Desbloquear chamada de vídeo 🔥</button>
+  </div>
+
+  <!-- Notificação -->
+  <div id="notification" class="notification"></div>
+
+  <!-- Simulação de nomes entrando -->
+  <script>
+    const nomes = ["Carlos", "Lucas", "Ricardo", "Hugo", "Breno", "Geraldo", "Roberto", "Vincius", "Natan", "Vitor", "Victor", "Bruno", "Leonardo", "Tiago", "Luan"];
+    let indiceAtual = 0;
+    function atualizarNome() {
+      const notification = document.getElementById("notification");
+      notification.textContent = `${nomes[indiceAtual]} entrou na Live 🔥`;
+      indiceAtual = (indiceAtual + 1) % nomes.length;
+    }
+    setInterval(atualizarNome, 4000);
+  </script>
 
 </body>
-
 </html>
