@@ -214,18 +214,15 @@
   <script>
     const CHECKOUT_URL = 'https://liberdadeonline.com/marina02/';
 
-    function irParaCheckout() {
-      if (typeof fbq !== "undefined") {
-        fbq('track', 'InitiateCheckout');
-      }
+function irParaCheckout() {
 
-      const qs = window.location.search || "";
-      const finalUrl = qs ? CHECKOUT_URL + qs : CHECKOUT_URL;
+  const qs = window.location.search || "";
+  const finalUrl = qs ? CHECKOUT_URL + qs : CHECKOUT_URL;
 
-      setTimeout(function(){
-        window.location.href = finalUrl;
-      }, 150);
-    }
+  setTimeout(function(){
+    window.location.href = finalUrl;
+  }, 150);
+}
 
     function redirecionar1() { irParaCheckout(); }
     function redirecionar2() { irParaCheckout(); }
